@@ -1,10 +1,13 @@
-import React from "react";
+import "./App.css";
 import { Container } from "react-bootstrap";
-import Header from "./components/Header.js";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Route, and Routes once
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 import HomeScreen from "./components/screens/HomeScreen";
 import ProductScreen from "./components/screens/ProductScreen";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CartScreen from "./components/screens/CartScreen";
+import LoginScreen from "./components/screens/LoginScreen";
+import RegisterScreen from "./components/screens/RegisterScreen";
 
 function App() {
   return (
@@ -13,8 +16,11 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/" element={<HomeScreen />} exact />
-            <Route path="/product/:id" element={<ProductScreen />} exact />
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/product/:id" element={<ProductScreen />} />
+            <Route path="/cart/:id?" element={<CartScreen />} />
           </Routes>
         </Container>
       </main>
